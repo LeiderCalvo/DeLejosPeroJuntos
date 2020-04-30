@@ -1,2 +1,54 @@
 @import 'vars';
 
+body section {
+    position: relative;
+
+    &>img{
+        height: 40px;
+        margin: 20px 0;
+    }
+
+    p{
+        margin-top: 20px;
+    }
+
+    .file--loader{
+        @include center();
+        margin: 50px 0 70px;
+        border: 2px solid $color0;
+        border-radius: 20px;
+        position: relative;
+        width: 400px;
+        height: 150px;
+        input{
+            @include center();
+            opacity: 0;
+            width: 400px;
+            height: 149px;
+            position:absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        p{
+            color: rgba(135, 92, 255, 0.5);
+        }
+
+        .loading {
+            color: $color0;
+        }
+    }
+
+    button{
+        @include center();
+        border: none;
+        border-radius: 100%;
+        width: 45px;
+        height: 45px;
+        background-color: $color0;
+        position: absolute;
+        bottom: 0px;
+        right: 102px;
+    }
+}

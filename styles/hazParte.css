@@ -6,4 +6,96 @@
     align-items: center;
 }
 */
+body section {
+  position: relative;
+}
+
+body section > img {
+  height: 40px;
+  margin: 20px 0;
+}
+
+body section p {
+  margin-top: 20px;
+}
+
+body section .file--loader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  margin: 50px 0 70px;
+  border: 2px solid #7638FF;
+  border-radius: 20px;
+  position: relative;
+  width: 400px;
+  height: 150px;
+}
+
+body section .file--loader input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  opacity: 0;
+  width: 400px;
+  height: 149px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+body section .file--loader p {
+  color: rgba(135, 92, 255, 0.5);
+}
+
+body section .file--loader .loading {
+  color: #7638FF;
+}
+
+body section button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  border: none;
+  border-radius: 100%;
+  width: 45px;
+  height: 45px;
+  background-color: #7638FF;
+  position: absolute;
+  bottom: 0px;
+  right: 102px;
+}
 /*# sourceMappingURL=hazParte.css.map */

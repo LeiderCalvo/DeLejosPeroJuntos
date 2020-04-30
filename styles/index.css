@@ -26,9 +26,32 @@ a:hover {
   border-bottom: solid #7638FF 2px;
 }
 
+h1 {
+  font-weight: 600;
+  font-size: 2.19087em;
+  line-height: 119.5%;
+}
+
 html, body {
   height: 100vh;
   width: 100vw;
+}
+
+body section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
 }
 
 nav {
@@ -80,5 +103,12 @@ nav .selected {
   color: #7638FF;
   border-bottom: solid #7638FF 2px;
   font-weight: bold;
+}
+
+nav .join.selected {
+  text-decoration: none;
+  background-color: #7638FF;
+  color: white;
+  font-weight: normal;
 }
 /*# sourceMappingURL=index.css.map */

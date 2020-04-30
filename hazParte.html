@@ -12,10 +12,21 @@
     <nav>
         <a href="/" class="logo">DE LEJOS<br/>PERO JUNTOS</a>
         <a href="/laCiudad.html">La ciudad</a>
-        <a href="/QueEsEsto.html" class="selected">¿Qué es esto?</a>
-        <a href="/HazParte.html" class="join">Haz parte</a>
+        <a href="/QueEsEsto.html">¿Qué es esto?</a>
+        <a href="/HazParte.html" class="join selected">Haz parte</a>
     </nav>
 
+    <section id="dash">
+        <img src="imgs/number0.svg" alt="number">
+        <h1>Ayúdanos a unirnos a través del sonido de<br/>nuestra ciudad, aunque estemos lejos.</h1>
+        <p>Graba desde tu ventana un audio corto con tu celular. ¿Cómo suena la ciudad en este momento?</p>
+        <div class="file--loader">
+            <input type="file" class="inp_loader">
+            <img src="imgs/sound.svg" alt="sound">
+            <p id="inp_text">Arrastra tu audio aquí<br/>o búscalo en tu pc</p>
+        </div>
+        <button id="btn_next"><img src="imgs/arrow.svg" alt="arrow"></button>
+    </section>
     
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>

@@ -6,13 +6,6 @@ body {
     background-position: bottom;
     background-repeat: no-repeat;
     section{
-        @include center();
-        h1{
-            font-weight: 600;
-            @include font-size(35);
-            line-height: 119.5%;
-        }
-    
         p{
             margin-top: 10px; 
             width: 45%;
