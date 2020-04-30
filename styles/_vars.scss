@@ -1,0 +1,86 @@
+$color0: #7638FF;
+$color1: #fff;
+ 
+$base-font-size: 21.3;
+
+@mixin font-size ($param){
+    //((Xpt*Kpx) / Bpx) * 1em --> ((points to pixels) divided by base) * type
+    font-size: (($param * 1.3333) / $base-font-size) * 1em;
+};
+
+@mixin width($param, $param2){
+    width: $param / $param2 * 100%;
+}
+
+@mixin height($param, $param2){
+    height: $param / $param2 * 100%;
+}
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+@mixin colums ($amount) {
+    width: 100%;
+    @include row();
+    flex-wrap: wrap;
+
+    section {
+        width: (100% / $amount) - 5;
+        margin-right: 2.5%;
+        margin-left: 2.5%;
+        height: 100%;
+        @include center();
+    }
+}
+/*
+@mixin colum {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+*/
+@mixin row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin boxShadow {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 10px;
+
+    &:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+}
+
+@mixin scrollBar {
+    overflow-y: hidden;
+    &:hover {
+        overflow-y: auto
+    }
+
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #888;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #f2f2f2;
+    }
+}

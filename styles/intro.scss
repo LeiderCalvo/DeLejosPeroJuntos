@@ -1,0 +1,21 @@
+@import 'vars';
+
+body {
+    background-image: url('../imgs/background.png');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+nav{
+    *{color: white;}
+}
+
+h3 {
+    color: white;
+    line-height: 129%;
+    text-align: center;
+    letter-spacing: 0.02em;
+    margin-top: 50px;
+    font-weight: normal;
+}
