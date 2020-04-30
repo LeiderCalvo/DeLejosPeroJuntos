@@ -18,6 +18,7 @@
 
 a {
   text-decoration: none;
+  padding-bottom: 2px;
 }
 
 a:hover {
@@ -52,7 +53,7 @@ nav {
       -ms-flex-pack: justify;
           justify-content: space-between;
   align-items: center;
-  padding: 53px 102px;
+  padding: 35px 102px;
 }
 
 nav .logo {
@@ -66,10 +67,18 @@ nav .logo {
 nav .join {
   border-radius: 50px;
   border: solid #7638FF 2px;
-  padding: 5px 15px;
+  padding: 5px 25px;
 }
 
 nav .join:hover {
   text-decoration: none;
+  background-color: #7638FF;
+  color: white;
+}
+
+nav .selected {
+  color: #7638FF;
+  border-bottom: solid #7638FF 2px;
+  font-weight: bold;
 }
 /*# sourceMappingURL=index.css.map */

@@ -1,0 +1,38 @@
+@import 'vars';
+
+body {
+    background-image: url('../imgs/shapes.svg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    section{
+        @include center();
+        h1{
+            font-weight: 600;
+            @include font-size(35);
+            line-height: 119.5%;
+        }
+    
+        p{
+            margin-top: 10px; 
+            width: 45%;
+            margin-bottom: 70px;
+        }
+
+        .row {
+            margin-bottom: 10px;
+            img{
+                margin: 0 30px;
+                height: 30px;
+            }
+        }
+
+        #second {
+            img{
+                margin: 0 5px;
+            }
+        }
+
+    }
+
+}

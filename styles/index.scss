@@ -11,6 +11,7 @@
 
 a{
     text-decoration: none;
+    padding-bottom: 2px;
     &:hover {
         color: $color0;
         border-bottom: solid $color0 2px;
@@ -25,7 +26,7 @@ html, body {
 nav{
     @include center();
     @include row();
-    padding: 53px 102px;
+    padding: 35px 102px;
 
     .logo{
         margin-right: 30%;
@@ -38,10 +39,18 @@ nav{
     .join{
         border-radius: 50px;
         border: solid $color0 2px;
-        padding: 5px 15px;
+        padding: 5px 25px;
 
         &:hover {
             text-decoration: none;
+            background-color: $color0;
+            color: white;
         }
+    }
+
+    .selected {
+        color: $color0;
+        border-bottom: solid $color0 2px;
+        font-weight: bold;
     }
 }
