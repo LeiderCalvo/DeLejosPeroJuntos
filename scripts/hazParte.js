@@ -101,6 +101,17 @@ function thirdStep() {
     btn_next3.addEventListener( 'click', next);
 }
 
+function fourthStep() {
+    response = {file: undefined, emotions: [], values: []};
+    step = 0;
+
+    body.classList.add('hands');
+
+    dash.className = '';
+    dash.classList.add('thrid');
+    dash.innerHTML = `<h1>¡Genial! Ahora haces parte de esta<br/>comunidad virtual.</h1>`;
+}
+
 function next () {
     switch (step) {
         case 0:
@@ -112,13 +123,23 @@ function next () {
             break;
 
         case 2:
-            console.log(response)
+            uploadInfo();
             break;
     
         default:
             break;
     }
 };
+
+function uploadInfo() {
+    let file = response.file;
+    uploadFile('users/us'+userID, file.name, file, { contentType: file.type+'' }, url => {
+        response.file = url;
+        writeData('users/us'+userID, response, e => {
+            e?  fourthStep(): this.alert('fallo cargando los archivos, porfavor reintente');
+        });
+    });
+}
 
 function back (){
     switch (step) {

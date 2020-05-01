@@ -22,7 +22,6 @@ a {
 }
 
 a:hover {
-  color: #7638FF;
   border-bottom: solid #7638FF 2px;
 }
 
@@ -90,14 +89,15 @@ nav .logo {
 
 nav .join {
   border-radius: 50px;
-  border: solid #7638FF 2px;
+  background-color: white;
   padding: 5px 25px;
+  color: #7638FF;
 }
 
 nav .join:hover {
   text-decoration: none;
-  background-color: #7638FF;
-  color: white;
+  border-bottom: none;
+  opacity: .7;
 }
 
 nav .selected {

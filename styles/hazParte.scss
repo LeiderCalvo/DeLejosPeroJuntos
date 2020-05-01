@@ -126,7 +126,18 @@ body section {
     }
 }
 
+.thrid{
+    h1{
+        margin-top: 150px;
+    }
+}
 
+.hands{
+    background-image: url('../imgs/hands.svg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
 
 input[type=range] {
     position: relative;

@@ -1,13 +1,13 @@
 var db = firebase.firestore();
 
 function writeData(path, obj, callback) {
-  db.doc(path).update(obj)
+  db.doc(path).set(obj)
   .then( e => callback(true))
-  .catch( e => callback(false));
+  .catch( e => callback(e));
 }
 
 function getData(path, callback) {
   db.doc(path).get()
   .then( doc => doc.exists? callback(doc.data()) : callback(null) )
-  .catch( err => callback(null));
+  .catch( err => callback(err));
 }

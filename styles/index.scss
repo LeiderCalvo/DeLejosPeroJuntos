@@ -13,7 +13,6 @@ a{
     text-decoration: none;
     padding-bottom: 2px;
     &:hover {
-        color: $color0;
         border-bottom: solid $color0 2px;
     }
 }
@@ -49,13 +48,15 @@ nav{
 
     .join{
         border-radius: 50px;
-        border: solid $color0 2px;
+        background-color: white;
         padding: 5px 25px;
-
+        color: $color0;
+        
         &:hover {
             text-decoration: none;
-            background-color: $color0;
-            color: white;
+            border-bottom: none;
+            opacity: .7;
+            //color: white;
         }
     }
 
