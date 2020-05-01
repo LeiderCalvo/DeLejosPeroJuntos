@@ -96,6 +96,136 @@ body section button {
   background-color: #7638FF;
   position: absolute;
   bottom: 0px;
+}
+
+body section #btn_back {
+  left: 102px;
+}
+
+body section #btn_back img {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+body section #btn_next {
   right: 102px;
+}
+
+.one {
+  padding: 0 102px;
+}
+
+.one .wrap {
+  margin: 40px 0 70px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.one .wrap section {
+  width: 28.33333%;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.one .wrap section {
+  border-radius: 50px;
+  border: solid #7638FF 2px;
+  padding: 5px 25px;
+  margin-bottom: 10px;
+}
+
+.one .wrap .selected {
+  background-color: #7638FF;
+  color: white;
+}
+
+.one .row {
+  width: 100%;
+}
+
+.second #btn_next {
+  width: 120px;
+  color: white;
+}
+
+.slider {
+  width: 30%;
+  position: relative;
+}
+
+.slider:after {
+  position: absolute;
+  top: 1em;
+  right: 0;
+  top: 20px;
+  left: 25%;
+  opacity: 0;
+  content: attr(data-value);
+}
+
+.slider:hover:after {
+  opacity: .5;
+}
+
+.slider input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+.slider input[type=range]:hover #day {
+  display: none;
+}
+
+.slider input[type=range]:focus {
+  outline: none;
+}
+
+.slider input[type=range]::-webkit-slider-runnable-track {
+  height: 5px;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  background: #3DA9FC;
+  border-radius: 5px;
+}
+
+.slider input[type=range]::-webkit-slider-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 25px;
+  background: #094067;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5px;
 }
 /*# sourceMappingURL=hazParte.css.map */
