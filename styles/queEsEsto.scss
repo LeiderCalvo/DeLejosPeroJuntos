@@ -6,10 +6,19 @@ body {
     background-position: bottom;
     background-repeat: no-repeat;
     section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+
         p{
             margin-top: 10px; 
             width: 45%;
             margin-bottom: 70px;
+            @include font-size(19);
+            line-height: 129%;
+            letter-spacing: 0.02em;
         }
 
         .row {
@@ -24,6 +33,10 @@ body {
             img{
                 margin: 0 5px;
             }
+        }
+
+        :last-child{
+            margin-bottom: 0;
         }
 
     }

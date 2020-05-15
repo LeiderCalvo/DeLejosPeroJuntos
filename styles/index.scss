@@ -13,7 +13,7 @@ a{
     text-decoration: none;
     padding-bottom: 2px;
     &:hover {
-        border-bottom: solid $color0 2px;
+        opacity: .6;
     }
 }
 
@@ -41,35 +41,33 @@ nav{
     .logo{
         margin-right: 30%;
         text-align: left;
-        font-weight: 800;
+        font-weight: bolder;
         letter-spacing: 0.02em;
         line-height: 100%;
     }
 
     .join{
         border-radius: 50px;
-        background-color: white;
+        background: linear-gradient(90deg, #FFA835 36.58%, #FF891F 94.38%);;
         padding: 5px 25px;
-        color: $color0;
+        color: $color1;
+        font-weight: bold;
         
         &:hover {
-            text-decoration: none;
-            border-bottom: none;
-            opacity: .7;
-            //color: white;
+            opacity: .6;
         }
     }
 
     .selected {
-        color: $color0;
-        border-bottom: solid $color0 2px;
+        color: $color2;
         font-weight: bold;
     }
 
     .join.selected {
         text-decoration: none;
-        background-color: $color0;
-        color: white;
+        background: none;
+        color: $color2;
         font-weight: normal;
+        border: solid 2px $color2;
     }
 }

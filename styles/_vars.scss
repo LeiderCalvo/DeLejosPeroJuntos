@@ -1,7 +1,8 @@
 $color0: #7638FF;
 $color1: #fff;
+$color2: #FF891F;
  
-$base-font-size: 21.3;
+$base-font-size: 22;
 
 @mixin font-size ($param){
     //((Xpt*Kpx) / Bpx) * 1em --> ((points to pixels) divided by base) * type
