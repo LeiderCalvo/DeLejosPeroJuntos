@@ -6,11 +6,20 @@
     align-items: center;
 }
 */
-body {
-  background-image: url("../imgs/background.png");
+html {
+  background-image: url("../imgs/sky.svg");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
+  position: relative;
+}
+
+body {
+  background-image: url("../imgs/bildings.svg");
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 nav * {
@@ -24,5 +33,26 @@ h3 {
   letter-spacing: 0.02em;
   margin-top: 50px;
   font-weight: normal;
+}
+
+#canvas {
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.window {
+  position: absolute;
+  z-index: 3;
+  background-color: #AA92FF;
+}
+
+.window:hover {
+  background-color: yellow;
 }
 /*# sourceMappingURL=intro.css.map */
