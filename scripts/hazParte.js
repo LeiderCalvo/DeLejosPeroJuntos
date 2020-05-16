@@ -6,6 +6,11 @@ var response = {file: undefined, emotions: [], values: []},
     let acceptedFiles = e.target.files;
     var reader = new FileReader();
 
+    if(acceptedFiles[0].type !== 'audio/mpeg') {
+        alert('Sólo archivos de audio');
+        return;
+    }
+
     inp_text.innerHTML = `${acceptedFiles[0].name}<br/>cargando..`;
     inp_text.classList.add('loading');
     
@@ -29,8 +34,8 @@ function firstStep(){
     <p>Graba desde tu ventana un audio de 20 segundos con tu celular.</p>
     <p id='succes'>¡Cargado exitosamente!</p>
     <div class="file--loader">
-        <input type="file" class="inp_loader">
-        <img src="imgs/sound.svg" alt="sound">
+        <input type="file" class="inp_loader" accept="audio/*">
+        <img src="imgs/sound.svg" alt="sound"> 
         <p id="inp_text">Arrastra tu audio aquí<br/>o búscalo en tu pc</p>
     </div>
     <button class='btn_next' id="btn_next"><img src="imgs/arrow.svg" alt="arrow"></button>`;
@@ -135,6 +140,8 @@ function next () {
             break;
 
         case 2:
+            btn_next3.innerHTML = 'cargando ...';
+            btn_next3.style.opacity = 0.5;
             uploadInfo();
             break;
     

@@ -11,3 +11,13 @@ function getData(path, callback) {
   .then( doc => doc.exists? callback(doc.data()) : callback(null) )
   .catch( err => callback(err));
 }
+
+function getCollectionData(path, callback) {
+  db.collection(path).get()
+  .then( doc => {
+    let docs = [];
+    doc.empty || doc.forEach( e => docs.push(e.data()) );
+    callback( docs );
+  })
+  .catch( err => callback(err));
+}
