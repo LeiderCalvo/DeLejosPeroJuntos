@@ -1,7 +1,8 @@
 @import 'vars';
 
 body section {
-    position: relative;
+    @include center();
+    height: 80vh;
 
     &>img{
         height: 40px;
@@ -10,16 +11,19 @@ body section {
 
     p{
         margin-top: 20px;
+        line-height: 129%;
+        @include font-size(20);
     }
 
     .file--loader{
         @include center();
         margin: 50px 0 70px;
-        border: 2px solid $color0;
+        background-color: $color0;
         border-radius: 20px;
         position: relative;
         width: 400px;
         height: 150px;
+
         input{
             @include center();
             opacity: 0;
@@ -32,11 +36,11 @@ body section {
         }
 
         p{
-            color: rgba(135, 92, 255, 0.5);
+            color: $color1;
         }
 
         .loading {
-            color: $color0;
+            color: $color1;
         }
     }
 
@@ -46,20 +50,36 @@ body section {
         border-radius: 100%;
         width: 45px;
         height: 45px;
-        background-color: $color0;
+        background-color: $color2;
         position: absolute;
         bottom: 0px;
     }
 
     .btn_back{
         left: 102px;
+        bottom: 50px;
         img{
             transform: rotate(-180deg);
+        }
+
+        &:hover{
+            opacity: .7;
         }
     }
 
     .btn_next{
         right: 102px;
+        bottom: 50px;
+        &:hover{
+            opacity: .7;
+        }
+    }
+
+    #succes{
+        display: none;
+        color: $color2;
+        font-weight: bold;
+        margin-bottom: -20px;
     }
 }
 
@@ -70,17 +90,21 @@ body section {
         @include colums(3);
         width: 72%;
         flex-wrap: wrap;
+        justify-content: flex-start;
+        height: fit-content;
 
         section {
             border-radius: 50px;
             border: solid $color0 2px;
             padding: 5px 25px;
             margin-bottom: 10px;
+            max-height: 3em;
         }
 
         .selected{
-            background-color: $color0;
+            background-color: $color2;
             color: white;
+            border-color: $color2;
         }
     }
 
@@ -92,6 +116,7 @@ body section {
 .second{
     width: 100%;
     overflow-x: hidden;
+    height: 70vh;
     .btn_next{
         display: flex;
         flex-direction: row;
@@ -104,10 +129,24 @@ body section {
         }
     }
 
+    .row{
+        position: relative;
+        width: 60%;
+        margin-top: 30px;
+        .tits{ 
+            @include row();
+            width: 60%;
+            margin-left: 43%;
+            .f{right: -2.4%;} .g{right: 10.5%;} .h{right: 23.7%;} .i{right: 37%;} .j{right: 49.7%;}
+        }
+    }
+
     #sliders{
         @include center();
-        width: 72%;
-        margin: 40px 0 65px;
+        width: 60%;
+        margin: 30px 0 65px;
+        position: relative;
+        
         .slider{
             @include row();
             width: 100%;
@@ -118,17 +157,37 @@ body section {
                 width: 20%;
                 text-align: left;
             }
-
-            p:last-child{
-                text-align: right;
-            }
         }
+
+        .tit{
+            line-height: 129%;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: $color0;
+            @include font-size(16);
+            position: absolute;
+        }
+
+        .mark{
+            content: '';
+            height: 10px;
+            width: 10px;
+            border-radius: 25px;
+            background: #E5E5E5;
+            -webkit-appearance: none;
+            margin: 0;
+            position: absolute;
+            z-index: -2;
+        }
+
+        .e{right: 0.4%;} .d{right: 13.5%;} .c{right: 26.7%;} .b{right: 40%;} .a{right: 53.2%;}
     }
 }
 
 .thrid{
-    h1{
-        margin-top: 150px;
+    p{
+        width: 60%;
+        margin-bottom: 90px;
     }
 }
 
@@ -139,6 +198,8 @@ body section {
     background-repeat: no-repeat;
 }
 
+/////
+
 input[type=range] {
     position: relative;
     -webkit-appearance: none;
@@ -147,24 +208,16 @@ input[type=range] {
     &:hover {
         &:after{ opacity: .5; }
     }
-
-    &:after {
-        position: absolute;
-        top: -25px;
-        left: 50%;
-        content: attr(data-value);
-        opacity: 0;        
-    }
     
     &:focus {
         outline: none;
     }
 
     &::-webkit-slider-runnable-track {
-        height: 15px;
+        height: 5px;
         cursor: pointer;
         transition: 0.2s;
-        background: rgba(135, 92, 255, 0.15);
+        background: #E5E5E5;
         border-radius: 5px;
     }
 
@@ -172,12 +225,10 @@ input[type=range] {
         height: 15px;
         width: 15px;
         border-radius: 25px;
-        background: $color0;
+        background: $color2;
         cursor: pointer;
         -webkit-appearance: none;
-        margin-top: 0;
+        margin-top: -5px;
+        transition: all 2s ease-in;
     }
 }
-
-
-
