@@ -67,6 +67,11 @@ function shutDowmWindow(i) {
     active_windows[i].classList.add('active');
     users_clicked[i] = false;
 
+    users[i].emotions.forEach( (emo, j) => {
+        index = emotions.findIndex(e => e === emo);
+        emotions_vals[index] -= users[i].values[j];
+    })
+
     sounding = sounding.filter( e => {
         if(e === users[i].file){
             e.pause();
