@@ -37,7 +37,7 @@ function setWindows() {
     active_windows = shuffled.slice(0, users.length);
 
     active_windows.forEach( ( e, i ) => {
-        e.classList.add('selected');
+        e.classList.add('active');
         e.onclick = ()=> onClickWindow(i);
     });
 }
@@ -46,7 +46,10 @@ function onClickWindow(i) {
     if(users_clicked[i]) return;
     users_clicked[i] = true;
     sounding.push(users[i].file);
-    users[i].file.play();
+    if(!check_interval) users[i].file.play();
+
+    active_windows[i].classList.remove('active');
+    active_windows[i].classList.add('selected');
 
     if(!check_interval) check_interval = setInterval(check_sound, 20000);
 
