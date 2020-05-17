@@ -43,7 +43,10 @@ function setWindows() {
 }
 
 function onClickWindow(i) {
-    if(users_clicked[i]) return;
+    if(users_clicked[i]) {
+        shutDowmWindow(i);
+        return;
+    }
     users_clicked[i] = true;
     sounding.push(users[i].file);
     if(!check_interval) users[i].file.play();
@@ -59,13 +62,33 @@ function onClickWindow(i) {
     })
 }
 
-function check_sound() {
-    sounding.forEach( e =>  {
+function shutDowmWindow(i) {
+    active_windows[i].classList.remove('selected');
+    active_windows[i].classList.add('active');
+    users_clicked[i] = false;
+
+    sounding = sounding.filter( e => {
+        if(e === users[i].file){
+            e.pause();
+            e.currentTime = 0;
+        }
+        return e !== users[i].file;
+    });
+    clearInterval(check_interval);
+    check_interval = undefined;
+
+    check_sound(true);
+    if(sounding.length >0) check_interval = setInterval(check_sound, 20000);
+}
+
+function check_sound(fromShutDown) {
+    console.log(sounding)
+    fromShutDown || sounding.forEach( e =>  {
         e.pause();
         e.currentTime = 0;
     });
-    if(current_audio === sounding.length) current_audio = 0;
-    sounding[current_audio].play();
+    if(current_audio >= sounding.length) current_audio = 0;
+    if(sounding.length >0) sounding[current_audio].play();
     current_audio ++;
 }
 
