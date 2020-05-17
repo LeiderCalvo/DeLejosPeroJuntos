@@ -52,10 +52,6 @@ h3 {
   background-color: #AA92FF;
 }
 
-.window:hover {
-  background-color: yellow;
-}
-
 .window.selected {
   background: #FFFFFF;
   -webkit-box-shadow: 0px 0px 10px #FFFFFF;
