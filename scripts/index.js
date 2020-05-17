@@ -87,7 +87,6 @@ function shutDowmWindow(i) {
 }
 
 function check_sound(fromShutDown) {
-    console.log(sounding)
     fromShutDown || sounding.forEach( e =>  {
         e.pause();
         e.currentTime = 0;
