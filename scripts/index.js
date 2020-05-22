@@ -2,7 +2,7 @@ const ws = ["2,2,3,2", "2,4,3,4", "2,6,3,6", "2,8,3,8", "2,10,3,10", "6,2,6,3", 
 const emotions = ['Motivación', 'Felicidad', 'Humor', 'Ira', 'Amor', 'Alegría', 'Frustración', 'Esperanza', 'Resignación', 'Tristeza', 'Miedo', 'Gratitud', 'Desesperanza', 'Odio'];
 const colors = ['#FFE66E', '#FFD400', '#FD8701', '#FF0003', '#FA5456', '#FFB2B2', '#A60BBF', '#7638FF', '#004D96', '#88CAFF', '#06A894', '#49C12B', '#138400', '#333333'];
 
-var w_arr, users, active_windows, users_clicked = [], emotions_vals = new Array(emotions.length);
+var w_arr, users, active_windows, users_clicked = [];
 var check_interval, current_audio = 0, sounding = [];
 var particulas = [];
 
@@ -11,7 +11,6 @@ var particulas = [];
         users_clicked[k] = false;
         return { ...u, file: new Audio(u.file) }
     });
-    emotions.forEach((val, i) => { emotions_vals[i] = 0; });
 
     setWindows();
 }))();
@@ -72,9 +71,8 @@ function onClickWindow(i) {
     if (!check_interval) check_interval = setInterval(check_sound, 8000);
 
     users[i].emotions.forEach((emo, j) => {
-        index = emotions.findIndex(e => e === emo);
-        emotions_vals[index] += users[i].values[j];
-        particulas.push( new Particle(createVector( mouseX, mouseY), index) );
+        emo_i = emotions.findIndex(e => e === emo);
+        particulas.push( new Particle( createVector( mouseX, mouseY), users[i].values[j] , colors[emo_i], users[i].emotions[j], i) );
     })
 }
 
@@ -82,12 +80,13 @@ function shutDowmWindow(i) {
     active_windows[i].classList.remove('selected');
     active_windows[i].classList.add('active');
     users_clicked[i] = false;
-
+    particulas = particulas.filter( p => p.win !== i )
+/*
     users[i].emotions.forEach((emo, j) => {
-        index = emotions.findIndex(e => e === emo);
-        emotions_vals[index] -= users[i].values[j];
+        //index = emotions.findIndex(e => e === emo);
+        //emotions_vals[index] -= users[i].values[j];
     })
-
+*/
     sounding = sounding.filter(e => {
         if (e === users[i].file) {
             e.pause();
