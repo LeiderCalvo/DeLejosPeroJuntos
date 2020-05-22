@@ -48,11 +48,14 @@ function draw() {
                 val += p.val;
             } );
             
-            if(sum < 20 ){
+            if( (sum/g.length) < 20 ){
                 let pg = new Particle(g[0].pos, val, g[0].color, g[0].emotion, 'x');
                 pg.pintar();
                 g.forEach( (p, i) => {
-                    if(i > 0) p.pos = g[0].pos.copy();
+                    if(i > 0) {
+                        p.pos = g[0].pos.copy();
+                        p.vel = g[0].vel.copy();
+                    }
                     p.mover();
                     p.limits();
                 })
