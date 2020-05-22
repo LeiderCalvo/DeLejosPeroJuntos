@@ -56,6 +56,7 @@ function setWindows() {
 }
 
 function onClickWindow(i) {
+    msj.style.display = 'none';
     if (users_clicked[i]) {
         shutDowmWindow(i);
         return;
@@ -96,7 +97,11 @@ function shutDowmWindow(i) {
     check_interval = undefined;
 
     check_sound(true);
-    if (sounding.length > 0) check_interval = setInterval(check_sound, 8000);
+    if (sounding.length > 0) {
+        check_interval = setInterval(check_sound, 8000);
+    }else{
+        msj.style.display = 'block';
+    }
 }
 
 function check_sound(fromShutDown) {
