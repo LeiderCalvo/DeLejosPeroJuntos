@@ -42,30 +42,30 @@ function draw() {
 
     groups.forEach( g => {
         if(g.length > 1){
-            let sum = 0, val = 0;
+            let near = [], far = [], val = 0;
             g.forEach( p => {
-                sum += p5.Vector.sub(p.pos, g[0].pos).mag();
-                val += p.val;
+                if(p5.Vector.sub(p.pos, g[0].pos).mag() < 20){
+                    near.push(p);
+                    val += p.val;
+                }else{
+                    far.push(p);
+                }
             } );
-            
-            if( (sum/g.length) < 20 ){
-                let pg = new Particle(g[0].pos, val, g[0].color, g[0].emotion, 'x');
-                pg.pintar();
-                g.forEach( (p, i) => {
-                    if(i > 0) {
-                        p.pos = g[0].pos.copy();
-                        p.vel = g[0].vel.copy();
-                    }
-                    p.mover();
-                    p.limits();
-                })
-            }else{
-                g.forEach(p => {
-                    p.pintar();
-                    p.perseguir(g[0]);
-                    p.limits();
-                })
-            }
+
+            let pg = new Particle(g[0].pos, val, g[0].color, g[0].emotion, 'x');
+            pg.pintar();
+            near.forEach((p, i) => {
+                p.pos = g[0].pos.copy();
+                p.vel = g[0].vel.copy();
+                p.mover();
+                p.limits();
+            })
+
+            far.forEach(p => {
+                p.pintar();
+                p.perseguir(g[0]);
+                p.limits();
+            })
 
         }else if(g.length > 0){
             g[0].pintar();
