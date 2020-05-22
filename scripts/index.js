@@ -4,6 +4,7 @@ const colors = ['#FFE66E', '#FFD400', '#FD8701', '#FF0003', '#FA5456', '#FFB2B2'
 
 var w_arr, users, active_windows, users_clicked = [], emotions_vals = new Array(emotions.length);
 var check_interval, current_audio = 0, sounding = [];
+var particulas = [];
 
 (e => getCollectionData('users/', e => {
     users = e.map((u, k) => {
@@ -73,6 +74,7 @@ function onClickWindow(i) {
     users[i].emotions.forEach((emo, j) => {
         index = emotions.findIndex(e => e === emo);
         emotions_vals[index] += users[i].values[j];
+        particulas.push( new Particle(createVector( mouseX, mouseY), index) );
     })
 }
 

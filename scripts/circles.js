@@ -1,4 +1,4 @@
-var fondo, bn, count = 0, canvas, particulas = [];;
+var fondo, bn, count = 0, canvas;
 //let bg;
 
 function setup() {
@@ -9,9 +9,6 @@ function setup() {
     fondo = loadImage("imgs/sky.svg");
     bn = loadImage("imgs/buildings.png");
     bn.resize(windowWidth, 0);
-    for (let i = 0; i < emotions.length; i++) {
-        particulas.push(new Particle(createVector(random(width), random( 100 )), i));
-    }
 
     /*
     bg = createGraphics(windowWidth, windowHeight);
@@ -39,32 +36,34 @@ function draw() {
     //image(bn, 0, height - bn.height);
     image(fondo, 0, 0);
     noStroke();
-    for (let i = 0; i < emotions.length; i++) {
-        if (emotions_vals[i] > 0) {
-            particulas[i].mover();
-            particulas[i].pintar();
-        }
+    for (let i = 0; i < particulas.length; i++) {
+        particulas[i].mover();
+        particulas[i].pintar();
     }
 }
 
 // Clase particula
 var Particle = function (pos, index) {
-    this.acel = createVector(0, random(-0.07, 0.07));
-    this.vel = createVector(random(-1, 1), random(-1, 0));
+    this.acel = createVector(random(-0.05, 0.05), -0.05);
+    this.vel = createVector(0, -1);
     this.pos = pos.copy();
-    this.index = index
+    this.index = index;
+    this.bouncing = false;
 };
 
 Particle.prototype.mover = function () {
     this.vel.add(this.acel);
     this.pos.add(this.vel);
     let px = bn.get( this.pos.x + this.vel.x, (this.pos.y + this.vel.y) - (height - bn.height) );
-    if(this.pos.x + this.vel.x <= 0 || this.pos.y + this.vel.y <= 0 || this.pos.x + this.vel.x >= windowWidth || px.toString() === '0,0,0,255' ){
-        this.vel.mult(-1);
-        this.vel.normalize();
-        this.acel.mult(-1);
+    if(this.bouncing){
+        if(this.pos.x + this.vel.x <= 0 || this.pos.y + this.vel.y <= 0 || this.pos.x + this.vel.x >= windowWidth || px.toString() === '0,0,0,255' ){
+            this.vel.mult(-1);
+            this.vel.normalize();
+            this.acel.mult(-1);
+        }
+        this.acel = createVector(random(-0.07, 0.07), random(-0.07, 0.07));
     }
-    this.acel = createVector(random(-0.07, 0.07), random(-0.07, 0.07));
+    if(this.pos.y < height - bn.height) this.bouncing = true;
 };
 
 Particle.prototype.pintar = function () {
