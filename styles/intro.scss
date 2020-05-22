@@ -1,7 +1,7 @@
 @import 'vars';
 
 html{
-    //background-image: url('../imgs/sky.svg');
+    background-image: url('../imgs/sky.svg');
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -29,6 +29,54 @@ h3 {
     font-weight: normal;
 }
 
+#leyenda{
+    position: absolute;
+    z-index: 4;
+    background: rgba(142, 102, 253, 0.3);
+    border-radius: 0 20px 20px 0;
+    top: 100px;
+
+    .emot_ley{
+        position: relative;
+        div{
+            content: '';
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 10px;
+        }
+    
+        p{
+            position: absolute;
+            top: 0;
+            left: 10px;
+            color: white;
+            border-radius: 20px;
+            padding: 0;
+            opacity: 0;
+
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 22px;
+
+            padding: 0;
+            //min-width: 160px;
+
+            transition: all .5s;
+        }
+        
+        &:hover{
+            p{
+                opacity: .8;
+                padding: 5px 40px;
+                transition-delay: .2s;
+            }
+        }
+    }
+}
+
 #canvas{
     width: 100vw;
     position: absolute;
@@ -38,7 +86,6 @@ h3 {
     background-position: bottom;
     background-repeat: no-repeat;
     z-index: 2;
-
 }
 
 .window{

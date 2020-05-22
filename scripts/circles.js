@@ -1,5 +1,3 @@
-const colors = ['#06A894', '#FD8701', '#7638FF', '#FFD400', '#333333', '#FFE66E', '#FFB2B2', '#FA5456', '#004D96', '#FF0003', '#49C12B', '#138400', '#88CAFF', '#A60BBF'];
-
 var fondo, bn, count = 0, canvas, particulas = [];;
 //let bg;
 
