@@ -44,7 +44,8 @@ function firstStep(){
 }
 
 
-const emotions = ['Miedo', 'Humor', 'Esperanza', 'Felicidad', 'Odio', 'Motivación', 'Alegría', 'Amor', 'Resignación', 'Ira', 'Gratitud', 'Desesperanza', 'Tristeza', 'Frustración'];
+const emotions = ['Motivación', 'Felicidad', 'Humor', 'Ira', 'Amor', 'Alegría', 'Frustración', 'Esperanza', 'Resignación', 'Tristeza', 'Miedo', 'Gratitud', 'Desesperanza', 'Odio'];
+const colors = ['#FFE66E', '#FFD400', '#FD8701', '#FF0003', '#FA5456', '#FFB2B2', '#A60BBF', '#7638FF', '#004D96', '#88CAFF', '#06A894', '#49C12B', '#138400', '#333333'];
 function secondStep() {
     response.emotions = [];
     step = 1;
@@ -56,23 +57,25 @@ function secondStep() {
     <div class='wrap' id='wrap'></div>
     <button class='btn_back' id="btn_back2"><img src="imgs/arrow.svg" alt="arrow"></button>
     <button class='btn_next' id="btn_next2"><img src="imgs/arrow.svg" alt="arrow"></button>`;
-    emotions.forEach( e => {
+    emotions.forEach( (e, i) => {
         let emotion = document.createElement('section');
         emotion.innerText = e;
-        emotion.addEventListener('click', e => saveEmotion(emotion));
+        emotion.addEventListener('click', e => saveEmotion(emotion, i));
         wrap.appendChild(emotion);
     });
     btn_back2.addEventListener('click', back);
     btn_next2.addEventListener( 'click', next);
 }
 
-function saveEmotion(e) {
+function saveEmotion(e, i) {
     if(e.classList.contains('selected')){
         response.emotions = response.emotions.filter( a => a !== e.innerText);
         e.classList.remove('selected');
+        e.style.background = 'none';
     }else if(response.emotions.length < 5){
         e.classList.add('selected');
         response.emotions.push(e.innerText);
+        e.style.background = colors[i];
     }
 }
 
@@ -103,8 +106,11 @@ function thirdStep() {
         let slider = document.createElement('div'),
             id = Math.random().toString(36).substr(2, 9);
         slider.classList.add('slider');
+
+        col_i = emotions.findIndex(emo => emo === e);
+
         slider.innerHTML = `<p>${e}</p>
-        <input id='inpt_${id}' type="range" min='1' max='5' step='1' value='1' data-value='${1}'/>
+        <input id='inpt_${id}' type="range" min='1' max='5' step='1' value='1' data-value='${1}' data-col='${colors[col_i]}'/>
         <div class='mark a'></div><div class='mark b'></div><div class='mark c'></div><div class='mark d'></div><div class='mark e'></div>`;
         sliders.appendChild(slider);
         let current_inp = document.querySelector('#inpt_'+id);

@@ -206,9 +206,8 @@ body section #succes {
 }
 
 .one .wrap .selected {
-  background-color: #FF891F;
   color: white;
-  border-color: #FF891F;
+  border: none;
 }
 
 .one .row {
@@ -412,5 +411,61 @@ input[type=range]::-webkit-slider-thumb {
   margin-top: -5px;
   -webkit-transition: all 2s ease-in;
   transition: all 2s ease-in;
+}
+
+input[data-col='#FFE66E']::-webkit-slider-thumb {
+  background: #FFE66E;
+}
+
+input[data-col='#FFD400']::-webkit-slider-thumb {
+  background: #FFD400;
+}
+
+input[data-col='#FD8701']::-webkit-slider-thumb {
+  background: #FD8701;
+}
+
+input[data-col='#FF0003']::-webkit-slider-thumb {
+  background: #FF0003;
+}
+
+input[data-col='#FA5456']::-webkit-slider-thumb {
+  background: #FA5456;
+}
+
+input[data-col='#FFB2B2']::-webkit-slider-thumb {
+  background: #FFB2B2;
+}
+
+input[data-col='#A60BBF']::-webkit-slider-thumb {
+  background: #A60BBF;
+}
+
+input[data-col='#7638FF']::-webkit-slider-thumb {
+  background: #7638FF;
+}
+
+input[data-col='#004D96']::-webkit-slider-thumb {
+  background: #004D96;
+}
+
+input[data-col='#88CAFF']::-webkit-slider-thumb {
+  background: #88CAFF;
+}
+
+input[data-col='#06A894']::-webkit-slider-thumb {
+  background: #06A894;
+}
+
+input[data-col='#49C12B']::-webkit-slider-thumb {
+  background: #49C12B;
+}
+
+input[data-col='#138400']::-webkit-slider-thumb {
+  background: #138400;
+}
+
+input[data-col='#333333']::-webkit-slider-thumb {
+  background: #333333;
 }
 /*# sourceMappingURL=hazParte.css.map */
