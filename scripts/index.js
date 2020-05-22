@@ -54,7 +54,7 @@ function onClickWindow(i) {
     active_windows[i].classList.remove('active');
     active_windows[i].classList.add('selected');
 
-    if(!check_interval) check_interval = setInterval(check_sound, 20000);
+    if(!check_interval) check_interval = setInterval(check_sound, 8000);
 
     users[i].emotions.forEach( (emo, j) => {
         index = emotions.findIndex(e => e === emo);
@@ -83,7 +83,7 @@ function shutDowmWindow(i) {
     check_interval = undefined;
 
     check_sound(true);
-    if(sounding.length >0) check_interval = setInterval(check_sound, 20000);
+    if(sounding.length >0) check_interval = setInterval(check_sound, 8000);
 }
 
 function check_sound(fromShutDown) {
