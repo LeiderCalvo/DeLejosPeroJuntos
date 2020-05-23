@@ -30,6 +30,8 @@ function setup() {
       */
 }
 
+let bit_dos = 0.05, step=0.05;
+
 function draw() {
     if(count<10){
         bn.resize(windowWidth, 0);
@@ -58,8 +60,10 @@ function draw() {
             part_base[emo_j].pos = g[0].pos;
             part_base[emo_j].val = val;
             part_base[emo_j].bit = val*0.03;
-            part_base[emo_j].setS(val * 5);
-
+            part_base[emo_j].setS((val * 5) - bit_dos);
+            if(frameCount % 3 === 0)bit_dos += step;
+            if(bit_dos > 5 || bit_dos < -5)
+                step*= (-1);
             //pg.bit = g[0].bit;
             part_base[emo_j].pintar();
             near.forEach((p, i) => {
@@ -73,6 +77,8 @@ function draw() {
                 p.pintar();
                 p.perseguir(g[0]);
                 p.limits();
+                let str = map( p5.Vector.sub(p.pos, g[0].pos).mag(), 0, (windowWidth/3), 3,1);
+                strokeWeight( str );
                 stroke(p.color);
                 line(p.pos.x, p.pos.y, part_base[emo_j].pos.x, part_base[emo_j].pos.y);
                 noStroke();
@@ -152,7 +158,10 @@ Particle.prototype.pintar = function () {
 };
 
 Particle.prototype.setS = function (s) {
-    if(s !== this.s) this.s = s;
+    if(this.s !== s){
+        this.s = s;
+        return
+    }
 };
 
 function windowResized() {
