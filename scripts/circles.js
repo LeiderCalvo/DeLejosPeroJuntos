@@ -35,7 +35,6 @@ function draw() {
     }
     //image(bn, 0, height - bn.height);
     image(fondo, 0, 0);
-    noStroke();
 
     groups = [];
     emotions.forEach(e => groups.push( particulas.filter(p => p.emotion === e) ) );
@@ -66,6 +65,9 @@ function draw() {
                 p.pintar();
                 p.perseguir(g[0]);
                 p.limits();
+                stroke(p.color);
+                line(p.pos.x, p.pos.y, pg.pos.x, pg.pos.y);
+                noStroke();
             })
 
         }else if(g.length > 0){
@@ -131,6 +133,7 @@ Particle.prototype.perseguir = function (p) {
 };
 
 Particle.prototype.pintar = function () {
+    noStroke();
     fill(this.color);
     //if(frameCount % 20 === 0)
         this.s += this.bit;
