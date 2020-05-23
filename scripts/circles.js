@@ -1,5 +1,5 @@
 var fondo, bn, count = 0, canvas;
-//let bg;
+var part_base = [];//let bg;
 
 function setup() {
     canvas = createCanvas(windowWidth, windowHeight);
@@ -9,6 +9,8 @@ function setup() {
     fondo = loadImage("imgs/sky.svg");
     bn = loadImage("imgs/buildings.png");
     bn.resize(windowWidth, 0);
+
+    emotions.forEach( (p,i) => part_base.push( new Particle( createVector(0,0), 1 , colors[i], p, 'x') ));
 
     /*
     bg = createGraphics(windowWidth, windowHeight);
@@ -51,9 +53,15 @@ function draw() {
                 }
             } );
 
-            let pg = new Particle(g[0].pos, val, g[0].color, g[0].emotion, 'x');
-            pg.bit = g[0].bit;
-            pg.pintar();
+            //let pg = new Particle(g[0].pos, val, g[0].color, g[0].emotion, 'x');
+            emo_j = emotions.findIndex( e => e === near[0].emotion);
+            part_base[emo_j].pos = g[0].pos;
+            part_base[emo_j].val = val;
+            part_base[emo_j].bit = val*0.03;
+            part_base[emo_j].setS(val * 5);
+
+            //pg.bit = g[0].bit;
+            part_base[emo_j].pintar();
             near.forEach((p, i) => {
                 p.pos = g[0].pos.copy();
                 p.vel = g[0].vel.copy();
@@ -66,7 +74,7 @@ function draw() {
                 p.perseguir(g[0]);
                 p.limits();
                 stroke(p.color);
-                line(p.pos.x, p.pos.y, pg.pos.x, pg.pos.y);
+                line(p.pos.x, p.pos.y, part_base[emo_j].pos.x, part_base[emo_j].pos.y);
                 noStroke();
             })
 
@@ -136,15 +144,16 @@ Particle.prototype.pintar = function () {
     noStroke();
     fill(this.color);
     //if(frameCount % 20 === 0)
-        this.s += this.bit;
+        //if(this.win === 'x')console.log(this.s)
+    this.s = this.s + this.bit;
     ellipse(this.pos.x, this.pos.y, this.s, this.s);
     if(this.s > ((this.val * 5) + (this.val*0.5)) || this.s <= ((this.val * 5) - (this.val*0.5))) this.bit *= -1;
 
 };
 
-function mousePressed() {
-//    console.log(p5.Vector.sub( particulas[0].pos, particulas[2].pos).mag() )
-}
+Particle.prototype.setS = function (s) {
+    if(s !== this.s) this.s = s;
+};
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
