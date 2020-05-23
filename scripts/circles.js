@@ -30,7 +30,7 @@ function setup() {
       */
 }
 
-let bit_dos = 0.05, step=0.03;
+let bit_dos = 0.05, step=0.02;
 
 function draw() {
     if(count<10){
