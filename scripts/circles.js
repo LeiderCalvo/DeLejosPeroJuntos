@@ -53,6 +53,7 @@ function draw() {
             } );
 
             let pg = new Particle(g[0].pos, val, g[0].color, g[0].emotion, 'x');
+            pg.bit = g[0].bit;
             pg.pintar();
             near.forEach((p, i) => {
                 p.pos = g[0].pos.copy();
@@ -99,6 +100,8 @@ var Particle = function (pos, val, color, emotion, win) {
     this.color = color;
     this.emotion = emotion;
     this.win = win;
+    this.bit = this.val*0.03;
+    this.s = this.val * 5;
 };
 
 Particle.prototype.mover = function () {
@@ -119,11 +122,6 @@ Particle.prototype.limits = function () {
     if(this.pos.y < height - bn.height) this.bouncing = true;
 };
 
-    Particle.prototype.die = function () {
-        p.val-=0.0000002;
-        if(this.val <= 0) particulas = particulas.filter( p => p !== this)
-    };
-
 Particle.prototype.perseguir = function (p) {
     let dir = p5.Vector.sub(p.pos, this.pos);
     dir.normalize();
@@ -134,8 +132,11 @@ Particle.prototype.perseguir = function (p) {
 
 Particle.prototype.pintar = function () {
     fill(this.color);
-    let s = this.val * 5;
-    ellipse(this.pos.x, this.pos.y, s, s);
+    //if(frameCount % 20 === 0)
+        this.s += this.bit;
+    ellipse(this.pos.x, this.pos.y, this.s, this.s);
+    if(this.s > ((this.val * 5) + (this.val*0.5)) || this.s <= ((this.val * 5) - (this.val*0.5))) this.bit *= -1;
+
 };
 
 function mousePressed() {
